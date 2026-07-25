@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#a8c3eb" />
+  <meta name="description" content="Maison De La Fork digital menu" />
+  <title>Maison De La Fork — Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-backdrop" aria-hidden="true"></div>
+
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__mark">M</div>
+    <div class="preloader__line"><span></span></div>
+  </div>
+
+  <main class="phone-shell" id="top">
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <section class="menu-board" aria-labelledby="menu-title">
+      <img
+        class="background-drawing"
+        src="assets/images/BackgroundDrawing.png"
+        alt=""
+        aria-hidden="true"
+        draggable="false"
+      />
+
+      <div class="ambient ambient--one" aria-hidden="true"></div>
+      <div class="ambient ambient--two" aria-hidden="true"></div>
+
+      <header class="hero">
+        <h1 class="hero__title" id="menu-title" aria-label="Maison De La Fork">
+          <span class="hero__line">Maison</span>
+          <span class="hero__line">De La</span>
+          <span class="hero__line">Fork</span>
+        </h1>
+      </header>
+
+      <div class="menu-content">
+        <section class="menu-section" aria-label="Kebabs">
+          <article class="menu-item reveal" tabindex="0">
+            <div class="menu-item__row">
+              <h2>Beef Kebab Torsh</h2>
+              <p class="price" aria-label="25 dollars">$25</p>
+            </div>
+            <p class="menu-item__meta">Jasmine Rice <span aria-hidden="true">|</span> Sumac Yogurt</p>
+          </article>
+
+          <article class="menu-item reveal" tabindex="0">
+            <div class="menu-item__row">
+              <h2>Chicken Kebab Torsh</h2>
+              <p class="price" aria-label="25 dollars">$25</p>
+            </div>
+            <p class="menu-item__meta">Jasmine Rice <span aria-hidden="true">|</span> Sumac Yogurt</p>
+          </article>
+        </section>
+
+        <div class="section-rule reveal" aria-hidden="true"><span></span></div>
+
+        <section class="menu-section drinks" aria-label="Drinks">
+          <article class="menu-item reveal" tabindex="0">
+            <div class="menu-item__row">
+              <h2>Sour Cherry Iced Tea</h2>
+              <p class="price" aria-label="6 dollars">$6</p>
+            </div>
+            <p class="menu-item__meta">Taste the Summer</p>
+          </article>
+        </section>
+      </div>
+
+      <div class="spark spark--one" aria-hidden="true">✦</div>
+      <div class="spark spark--two" aria-hidden="true">✦</div>
+      <div class="spark spark--three" aria-hidden="true">✦</div>
+
+      <img
+        class="cupid"
+        src="assets/images/cupid.png"
+        alt="Illustrated cupid holding a sour cherry iced tea"
+        draggable="false"
+      />
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-copy reveal">
+        <img class="brand-logo" src="assets/images/Logo.png" alt="Maison De La Fork" draggable="false" />
+
+        <address>
+          <span>25722 Commercentre Dr,</span>
+          <span>Lake Forest, CA 92630</span>
+        </address>
+      </div>
+
+      <nav class="socials reveal" aria-label="Social media">
+        <a href="https://instagram.com/maisondelafork" target="_blank" rel="noopener noreferrer" aria-label="Maison De La Fork on Instagram">
+          <img src="assets/icons/instagram.svg" alt="" aria-hidden="true" />
+        </a>
+        <a href="https://www.youtube.com/@MaisonDeLaFork" target="_blank" rel="noopener noreferrer" aria-label="Maison De La Fork on YouTube">
+          <img src="assets/icons/youtube.svg" alt="" aria-hidden="true" />
+        </a>
+        <a href="https://x.com/forkmaison" target="_blank" rel="noopener noreferrer" aria-label="Maison De La Fork on X">
+          <img src="assets/icons/x.svg" alt="" aria-hidden="true" />
+        </a>
+      </nav>
+
+      <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+    </footer>
+  </main>
+
+  <noscript>
+    <style>
+      .preloader { display: none; }
+      .reveal { opacity: 1; transform: none; }
+    </style>
+  </noscript>
+</body>
+</html>

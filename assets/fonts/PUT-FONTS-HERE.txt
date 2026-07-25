@@ -1,0 +1,5 @@
+Put these WOFF2 files in this folder:
+Dahlia-MediumCondensed.woff2
+Dahlia-Bold.woff2
+Dahlia-Medium.woff2
+KoHo-Medium.woff2

@@ -1,0 +1,4 @@
+Put these exact files in this folder:
+BackgroundDrawing.png
+cupid.png
+Logo.png
