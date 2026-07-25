@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Dahlia Condensed";
   src: url("assets/fonts/Dahlia-MediumCondensed.woff2") format("woff2");
-  font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
@@ -9,7 +8,6 @@
 @font-face {
   font-family: "Dahlia";
   src: url("assets/fonts/Dahlia-Bold.woff2") format("woff2");
-  font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
@@ -17,7 +15,6 @@
 @font-face {
   font-family: "Dahlia";
   src: url("assets/fonts/Dahlia-Medium.woff2") format("woff2");
-  font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
@@ -25,7 +22,6 @@
 @font-face {
   font-family: "KoHo";
   src: url("assets/fonts/KoHo-Medium.woff2") format("woff2");
-  font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
@@ -311,8 +307,16 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
   white-space: nowrap;
 }
 
+.currency-sign {
+  display: inline-block;
+  margin-right: .02em;
+  font-size: .72em;
+  line-height: 1;
+  vertical-align: .14em;
+}
+
 .menu-item__meta {
-  margin: 8px 0 0;
+  margin: 3px 0 0;
   color: rgba(255,255,255,.97);
   font-family: "KoHo", "Trebuchet MS", Arial, sans-serif;
   font-size: clamp(16px, 4.7vw, 21px);
@@ -434,16 +438,13 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
 .brand-logo {
   width: 82px;
   height: auto;
-  margin-bottom: 28px;
+  margin-bottom: 8px;
 }
 
-.site-footer address {
-  display: grid;
-  gap: 3px;
+.footer-tagline {
   margin: 0;
   font-family: "KoHo", "Trebuchet MS", Arial, sans-serif;
   font-size: 15px;
-  font-style: normal;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -.01em;
@@ -492,9 +493,20 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
   transform: scale(1.08);
 }
 
-.socials img {
+.socials svg {
   width: 22px;
   height: 22px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.socials .social-icon__fill {
+  fill: currentColor;
+  stroke: none;
 }
 
 .back-to-top {
