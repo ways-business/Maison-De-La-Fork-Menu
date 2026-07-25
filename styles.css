@@ -44,6 +44,7 @@
   --drawing-parallax: 0px;
   --cupid-shift: 0px;
   --cupid-rotate: 0deg;
+  --cupid-gap: 20px;
 }
 
 * {
@@ -137,52 +138,12 @@ a {
   transition: height .08s linear;
 }
 
-.preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: grid;
-  place-content: center;
-  gap: 14px;
-  color: #fff;
-  background: var(--blue);
-  transition: opacity .7s cubic-bezier(.2,.75,.25,1), visibility .7s;
-}
-
-.preloader__mark {
-  font-family: "Dahlia Condensed", Didot, "Bodoni MT", Georgia, serif;
-  font-size: clamp(72px, 22vw, 110px);
-  line-height: .8;
-  text-align: center;
-  animation: loaderFloat 1.2s ease-in-out infinite alternate;
-}
-
-.preloader__line {
-  width: 128px;
-  height: 2px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(255,255,255,.28);
-}
-
-.preloader__line span {
-  display: block;
-  width: 45%;
-  height: 100%;
-  border-radius: inherit;
-  background: #fff;
-  animation: loaderLine 1s cubic-bezier(.65,0,.35,1) infinite;
-}
-
-body.is-loaded .preloader {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .menu-board {
   position: relative;
   min-height: clamp(900px, 218vw, 950px);
-  padding: max(30px, env(safe-area-inset-top)) 24px 250px;
+  margin: 0 10px;
+  border-top: 10px solid var(--paper);
+  padding: max(24px, env(safe-area-inset-top)) 24px 0;
   overflow: visible;
   background:
     radial-gradient(circle at 30% 35%, rgba(255,255,255,.08), transparent 34%),
@@ -192,10 +153,10 @@ body.is-loaded .preloader {
 .menu-board::before {
   content: "";
   position: absolute;
-  inset: 9px;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
-  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
 }
 
 .menu-board::after {
@@ -229,7 +190,7 @@ body.is-loaded .preloader {
 .hero {
   position: relative;
   z-index: 3;
-  padding-top: 72px;
+  padding-top: 52px;
   transform: translate3d(0, var(--hero-parallax), 0);
   will-change: transform;
 }
@@ -240,7 +201,7 @@ body.is-loaded .preloader {
   font-family: "Dahlia Condensed", Didot, "Bodoni MT", Georgia, serif;
   font-size: clamp(82px, 24.5vw, 112px);
   font-weight: 500;
-  line-height: .78;
+  line-height: .86;
   letter-spacing: .01em;
   text-align: center;
   text-wrap: balance;
@@ -248,10 +209,13 @@ body.is-loaded .preloader {
 
 .hero__line {
   display: block;
+  padding-bottom: .055em;
   opacity: 0;
-  transform: translateY(44px) rotateX(16deg);
+  transform: translateY(50px) scale(.965) rotateX(12deg);
   transform-origin: 50% 100%;
   filter: blur(7px);
+  clip-path: inset(0 0 100% 0);
+  letter-spacing: .035em;
 }
 
 body.is-loaded .hero__line {
@@ -261,6 +225,17 @@ body.is-loaded .hero__line {
 body.is-loaded .hero__line:nth-child(1) { animation-delay: .16s; }
 body.is-loaded .hero__line:nth-child(2) { animation-delay: .28s; }
 body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
+
+
+/* Soft spring inertia: text gently follows the direction of the scroll, then settles naturally. */
+.scroll-motion {
+  --motion-y: 0px;
+  --motion-skew: 0deg;
+  transform: translate3d(0, var(--motion-y), 0) skewY(var(--motion-skew));
+  transform-origin: 50% 52%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
 
 .menu-content {
   position: relative;
@@ -389,34 +364,45 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
   filter: blur(0);
 }
 
+.cupid-stage {
+  position: relative;
+  z-index: 7;
+  width: 100%;
+  height: clamp(300px, 78vw, 338px);
+  margin-top: var(--cupid-gap);
+  margin-bottom: -165px;
+  pointer-events: none;
+}
+
 .cupid {
   position: absolute;
   z-index: 7;
+  top: 0;
   right: -24px;
-  bottom: -248px;
-  width: min(98%, 425px);
+  width: min(79.4%, 345px);
   pointer-events: none;
   user-select: none;
   transform: translate3d(0, var(--cupid-shift), 0) rotate(var(--cupid-rotate));
   transform-origin: 58% 42%;
   will-change: transform;
   filter: drop-shadow(0 20px 20px rgba(56,73,102,.12));
-  animation: cupidFloat 4.8s ease-in-out infinite alternate;
 }
 
 .spark {
   position: absolute;
-  z-index: 6;
-  color: #fff;
-  font-size: 23px;
+  z-index: 30;
+  color: rgba(255,255,255,.98);
+  font-size: 24px;
   line-height: 1;
   pointer-events: none;
+  isolation: isolate;
+  filter: drop-shadow(0 2px 3px rgba(91,124,170,.28));
   animation: sparkle 2.2s ease-in-out infinite;
 }
 
-.spark--one { right: 82px; bottom: 92px; animation-delay: -.4s; }
-.spark--two { left: 99px; bottom: 124px; font-size: 16px; animation-delay: -1.2s; }
-.spark--three { right: 30px; bottom: 24px; font-size: 14px; animation-delay: -.8s; }
+.spark--one { right: 108px; top: 18px; animation-delay: -.4s; }
+.spark--two { left: 78px; top: 84px; font-size: 18px; animation-delay: -1.2s; }
+.spark--three { right: 28px; top: 126px; font-size: 16px; animation-delay: -.8s; }
 
 .ambient {
   position: absolute;
@@ -436,8 +422,7 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
 .site-footer {
   position: relative;
   z-index: 3;
-  min-height: 520px;
-  padding: 270px 24px 38px;
+  padding: 90px 24px 36px;
   color: var(--blue-line);
   background: var(--paper);
 }
@@ -468,7 +453,7 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 66px;
+  margin-top: 16px;
 }
 
 .socials a {
@@ -535,25 +520,15 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
 }
 
 @keyframes titleReveal {
-  to { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+    letter-spacing: .01em;
+  }
 }
 
-@keyframes loaderFloat {
-  from { transform: translateY(6px) scale(.98); opacity: .72; }
-  to { transform: translateY(-5px) scale(1); opacity: 1; }
-}
-
-@keyframes loaderLine {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(340%); }
-}
-
-
-
-@keyframes cupidFloat {
-  from { margin-bottom: -3px; }
-  to { margin-bottom: 7px; }
-}
 
 @keyframes sparkle {
   0%, 100% { transform: scale(.55) rotate(0); opacity: .35; }
@@ -566,7 +541,6 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
 
   .phone-shell {
     min-height: calc(100svh - 56px);
-    border: 1px solid rgba(255,255,255,.75);
     border-radius: 30px;
   }
 
@@ -577,7 +551,7 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
 
 @media (max-width: 370px) {
   .menu-board { padding-inline: 20px; }
-  .hero { padding-top: 60px; }
+  .hero { padding-top: 44px; }
   .menu-content { margin-top: 96px; }
   .menu-item h2 { font-size: clamp(19px, 6.25vw, 23px); }
   .price { font-size: clamp(23px, 7vw, 27px); }
@@ -586,6 +560,7 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :root { --text-nudge: 0px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: .01ms !important;
@@ -593,5 +568,5 @@ body.is-loaded .hero__line:nth-child(3) { animation-delay: .40s; }
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
   }
-  .hero__line, .reveal { opacity: 1; transform: none; filter: none; }
+  .hero__line, .reveal { opacity: 1; transform: none; filter: none; clip-path: none; }
 }

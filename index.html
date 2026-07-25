@@ -12,10 +12,6 @@
 <body>
   <div class="page-backdrop" aria-hidden="true"></div>
 
-  <div class="preloader" aria-hidden="true">
-    <div class="preloader__mark">M</div>
-    <div class="preloader__line"><span></span></div>
-  </div>
 
   <main class="phone-shell" id="top">
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -72,16 +68,18 @@
         </section>
       </div>
 
-      <div class="spark spark--one" aria-hidden="true">✦</div>
-      <div class="spark spark--two" aria-hidden="true">✦</div>
-      <div class="spark spark--three" aria-hidden="true">✦</div>
+      <div class="cupid-stage" aria-hidden="true">
+        <div class="spark spark--one">✦</div>
+        <div class="spark spark--two">✦</div>
+        <div class="spark spark--three">✦</div>
 
-      <img
-        class="cupid"
-        src="assets/images/cupid.png"
-        alt="Illustrated cupid holding a sour cherry iced tea"
-        draggable="false"
-      />
+        <img
+          class="cupid"
+          src="assets/images/cupid.png"
+          alt=""
+          draggable="false"
+        />
+      </div>
     </section>
 
     <footer class="site-footer">
@@ -112,8 +110,7 @@
 
   <noscript>
     <style>
-      .preloader { display: none; }
-      .reveal { opacity: 1; transform: none; }
+      .hero__line, .reveal { opacity: 1; transform: none; filter: none; clip-path: none; }
     </style>
   </noscript>
 </body>
