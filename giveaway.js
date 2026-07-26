@@ -34,7 +34,8 @@
     let message = "";
 
     if (input.validity.valueMissing) {
-      message = input.type === "email" ? "Please enter your email address." : "Please enter your name.";
+      if (input.type === "email") message = "Please enter your email address.";
+      else if (input.id === "giveaway-name") message = "Please enter your name.";
     } else if (input.validity.typeMismatch) {
       message = "Please enter a valid email address.";
     } else if (input.validity.tooShort) {
