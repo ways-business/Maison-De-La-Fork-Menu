@@ -1,21 +1,24 @@
 @font-face {
   font-family: "Dahlia Condensed";
-  src: url("assets/fonts/Dahlia-MediumCondensed.woff2") format("woff2");
+  src: url("assets/fonts/dahlia-mediumcondensed.woff2") format("woff2");
   font-weight: 500;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Dahlia";
-  src: url("assets/fonts/Dahlia-Bold.woff2") format("woff2");
+  src: url("assets/fonts/dahlia-bold.woff2") format("woff2");
   font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Dahlia";
-  src: url("assets/fonts/Dahlia-Medium.woff2") format("woff2");
+  src: url("assets/fonts/dahlia-medium.woff2") format("woff2");
   font-weight: 500;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -23,6 +26,7 @@
   font-family: "KoHo";
   src: url("assets/fonts/KoHo-Medium.woff2") format("woff2");
   font-weight: 500;
+  font-style: normal;
   font-display: swap;
 }
 
