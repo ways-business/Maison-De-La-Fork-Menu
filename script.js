@@ -108,9 +108,9 @@
     });
   });
 
-  document.querySelectorAll(".footer-copy > *").forEach((element, index) => {
+  document.querySelectorAll(".footer-brand-line > *, .footer-social-block .socials").forEach((element, index) => {
     registerMotionNode(element, {
-      strength: 0.46 + index * 0.08,
+      strength: 0.42 + index * 0.06,
       stiffness: 0.09,
       damping: 0.8,
     });
